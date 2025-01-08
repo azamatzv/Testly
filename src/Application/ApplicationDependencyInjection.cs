@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Application.Services;
+using Application.Services.Impl;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Services;
 using Shared.Services.Impl;
@@ -18,6 +20,7 @@ public static class ApplicationDependencyInjection
     private static void AddServices(this IServiceCollection services, IWebHostEnvironment env)
     {
         services.AddScoped<IClaimService, ClaimService>();
+        services.AddScoped<IParticipantService, ParticipantService>();
     }
 
     private static void RegisterCashing(this IServiceCollection services)
